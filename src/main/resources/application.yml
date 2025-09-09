@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev # 기본 프로파일: dev
+  config:
+    import:
+      - optional:file:.env[.properties]
+
+# 공통 보안 설정
+security:
+  public-urls:
+    - "/api-docs"
+    - "/v3/api-docs/**"
+    - "/swagger-ui/**"
+  cors-max-age: 3600
+
+# 공통 Swagger 설정
+springdoc:
+  swagger-ui:
+    path: /api-docs
